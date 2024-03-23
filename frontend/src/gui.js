@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './gui.css';
 
 const FileUploadComponent = () => {
     const [selectedFile, setSelectedFile] = useState(null);
-    const [data, setData] = useState({});
+    const [audioSrc, setAudioSrc] = useState('');
+    const [caption, setCaption] = useState('');
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
     };
 
     const handleConvert = async () => {
-        // Implement file upload logic here
         if (!selectedFile) {
             console.log('No file selected.');
             return;
@@ -26,18 +26,29 @@ const FileUploadComponent = () => {
             });
 
             const jsonData = await response.json();
-            setData(jsonData);
+            console.log(jsonData);
+
+            // Update audio source and caption with the response data
+            setAudioSrc(jsonData.audio_file);
+            setCaption(jsonData.caption);
         } catch (error) {
             console.log('Error', error);
         }
-
-        console.log('Converting file:', selectedFile);
     };
 
     return (
         <div className="file-upload-container">
             <input type="file" onChange={handleFileChange} className="file-input" />
             <button onClick={handleConvert} className="convert-button">Convert picture</button>
+            {audioSrc && (
+                <div className="audio-container">
+                    <audio controls>
+                        <source src={audioSrc} type="audio/mpeg" />
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p>{caption}</p>
+                </div>
+            )}
         </div>
     );
 };
