@@ -26,6 +26,6 @@ def predict_caption(image_path):
 
     preds = tokenizer.batch_decode(output_ids, skip_special_tokens=True)
     preds = [pred.strip() for pred in preds]
-    print("Final Caption is:", preds)
+    # print("Final Caption is:", preds)
     return preds
 
