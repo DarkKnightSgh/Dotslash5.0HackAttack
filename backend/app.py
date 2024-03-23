@@ -14,8 +14,8 @@ app = Flask(__name__, template_folder=template_dir)
 
 # Define routes
 @app.route('/')
-def index():
-    return render_template('mock.html')
+# def index():
+#     return render_template('mock.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -49,5 +49,5 @@ def upload_file():
 # Run the Flask application
 if __name__ == '__main__':
     # Open the default web browser and navigate to the appropriate URL
-    webbrowser.open('http://127.0.0.1:5000/')
+    # webbrowser.open('http://127.0.0.1:5000/')
     app.run(debug=True)
