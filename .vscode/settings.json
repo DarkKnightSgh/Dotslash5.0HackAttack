@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "*.embeddedhtml": "html",
-        "*.v": "systemverilog",
-        "*.vcd": "plaintext",
-        "Makefile": "makefile",
-        "plyconfig.json": "jsonc"
-    }
-}
