@@ -49,7 +49,3 @@ Open your web browser and navigate to [http://localhost:3000](http://localhost:3
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue if you encounter any bugs or have suggestions for improvements.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
