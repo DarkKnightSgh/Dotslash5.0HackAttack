@@ -1,12 +1,13 @@
 # Image Captioning Web Application
 
-This web application allows users to generate captions for images using a deep learning model.
+This web application allows users to generate captions and audio for images using a deep learning model.
 
 ## Features
 
 - Upload images: Users can upload images through the web interface.
 - Caption generation: The application generates captions for the uploaded images using a pre-trained deep learning model.
 - Display captions: The generated captions are displayed on the web interface for users to see.
+- Audio Generation: Converts the generated captions to audio 
 
 ## Technologies Used
 
@@ -14,6 +15,7 @@ This web application allows users to generate captions for images using a deep l
 - Backend: Flask (Python)
 - Deep Learning Framework: TensorFlow/Keras, Tesseract OCR, ViT
 - Image Processing: PIL (Python Imaging Library)
+- Audio Generation: gTTS
 
 ## Installation
 
