@@ -6,12 +6,12 @@ const FileUploadComponent = () => {
     const [uploadedImage, setUploadedImage] = useState('');
     const [caption, setCaption] = useState('');
 
-    useEffect(() => {
-        fetch('/caption.txt')
-            .then(response => response.text())
-            .then(text => setCaption(text))
-            .catch(error => console.error('Error fetching caption:', error));
-    }, []);
+    // useEffect(() => {
+    //     fetch('/caption.txt')
+    //         .then(response => response.text())
+    //         .then(text => setCaption(text))
+    //         .catch(error => console.error('Error fetching caption:', error));
+    // }, []);
 
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
@@ -52,12 +52,13 @@ const FileUploadComponent = () => {
             const captionResponse = await fetch("http://127.0.0.1:5000/caption", {
                 method: 'GET'
             });
-
+        
             if (!captionResponse.ok) {
                 throw new Error('Failed to fetch caption');
             }
-
-            const captionText = await captionResponse.text();
+        
+            const captionData = await captionResponse.json();
+            const captionText = captionData.caption;
             setCaption(captionText);
             console.log(captionText);
         } catch (error) {
